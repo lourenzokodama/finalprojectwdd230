@@ -7,7 +7,7 @@ const url = `https://api.openweathermap.org/data/2.5/weather?zip=97741,us&units=
 apiFetch(url);
 
 async function apiFetch(apiURL) {
-  try {
+ try {
     const response = await fetch(apiURL);
     if (response.ok) {
       const data = await response.json();
@@ -15,19 +15,24 @@ async function apiFetch(apiURL) {
     } else {
         throw Error(await response.text());
     }
-  } catch (error) {
+ } catch (error) {
       console.log(error);
-  }
+ }
 }
 
+function displayResults(weatherData) {
+ currentTemp.innerHTML = `<strong>${weatherData.main.temp.toFixed(0)}</strong>`;
 
-function  displayResults(weatherData) {
-  currentTemp.innerHTML = `<strong>${weatherData.main.temp.toFixed(0)}</strong>`;
+ const iconsrc = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
+ const desc = toTitleCase(weatherData.weather[0].description);
 
-  const iconsrc = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
-  const desc = toTitleCase(weatherData.weather[0].description);
+ weatherIcon.setAttribute('src', iconsrc);
+ weatherIcon.setAttribute('alt', desc);
+ captionDesc.textContent = desc;
+}
 
-  weatherIcon.setAttribute('src', iconsrc);
-  weatherIcon.setAttribute('alt', desc);
-  captionDesc.textContent = desc;
+function toTitleCase(str) {
+ return str.replace(/\w\S*/g, function(txt){
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+ });
 }
