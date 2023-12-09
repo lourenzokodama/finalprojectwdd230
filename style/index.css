@@ -359,6 +359,7 @@
     display: grid;
     margin: 0 auto;
     grid-template-columns: repeat(5, 1fr);
+     width: 50%;
     /* max-width: 650px; */
 }
 .five-day section {
