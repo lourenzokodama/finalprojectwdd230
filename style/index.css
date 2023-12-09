@@ -47,42 +47,6 @@
     }
 /* End Basic Initialization CSS */
 
-/* weather css */
-
-.five-day {
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: repeat(5, 1fr);
-    /* max-width: 650px; */
-}
-.five-day section {
-    border: solid 0.5px var(--default-dark);
-    padding: 0;
-}
-.five-day div {
-    margin: 0 auto;
-}
-.five-day h4 {
-    text-shadow: 1px 1px 1px var(--default-dark);
-    background-color: var(--main-color);
-    color: var(--default-light);
-    text-align: center;
-    padding: 0.5rem;
-    margin: 0;
-}
-.five-day span {
-    color: var(--default-dark);
-    text-align: center;
-    padding: 0.5rem;
-    display: block;
-}
-.weather-icon img {
-    display: block;
-    margin: 10px auto;
-    transform: scale(1.5);
-    filter: drop-shadow(1px 1px 1px var(--default-dark));
-}
-/*end weather*/
 
 /* Begin Global Styling */
     h2 {
@@ -388,9 +352,44 @@
         align-self: end;
         margin: 0;
     }
-    .forecast > p {
-        grid-column: 1 / -1;
-    }
+
+/* weather css */
+
+.five-day {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(5, 1fr);
+    /* max-width: 650px; */
+}
+.five-day section {
+    border: solid 0.5px var(--default-dark);
+    padding: 0;
+}
+.five-day div {
+    margin: 0 auto;
+}
+.five-day h4 {
+    text-shadow: 1px 1px 1px var(--default-dark);
+    background-color: var(--main-color);
+    color: var(--default-light);
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0;
+}
+.five-day span {
+    color: var(--default-dark);
+    text-align: center;
+    padding: 0.5rem;
+    display: block;
+}
+.weather-icon img {
+    display: block;
+    margin: 10px auto;
+    transform: scale(1.5);
+    filter: drop-shadow(1px 1px 1px var(--default-dark));
+}
+/*end weather*/
+
     main section p {
         align-self: start;
         margin: 0;
@@ -407,24 +406,7 @@
         grid-column: 1 / -1;
         margin: 0;
     }
-    .forecast {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        justify-items: center;
-        padding: 2rem 1rem;
-        grid-gap: 30px;
-    }
-    .forecast section {
-        display: grid;
-        border-radius: 3px;
-        grid-template-columns: 80px auto;
-        background-color: var(--gray);
-        align-items: center;
-        width: 210px;
-    }
-    .forecast section * {
-        color: white;
-    }
+  
     main section img {
         grid-column: 1;
         grid-row: span 2;
