@@ -339,59 +339,9 @@
         grid-column: 1;
         grid-row: 1 / span 3;
     }
-    .weather section {
-        display: grid;
-        margin-top: 20px;
-        margin-left: 20px;
-        grid-template-columns: 100px auto;
-        background-color: var(--other);
-        align-items: center;
-        max-width: 250px;
-    }
-    .forecast section h3, .home section h4 {
-        align-self: end;
-        margin: 0;
-    }
+  
 
-/* weather css */
 
-section.forecast h3 {
-    text-align: center;
-}
-.five-day {
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 650px;
-}
-.five-day section {
-    border: solid 0.5px var(--default-dark);
-    padding: 0;
-}
-.five-day div {
-    margin: 0 auto;
-}
-.five-day h4 {
-    text-shadow: 1px 1px 1px var(--default-dark);
-    background-color: var(--main-color);
-    color: var(--default-light);
-    text-align: center;
-    padding: 0.5rem;
-    margin: 0;
-}
-.five-day span {
-    color: var(--default-dark);
-    text-align: center;
-    padding: 0.5rem;
-    display: block;
-}
-.weather-icon img {
-    display: block;
-    margin: 10px auto;
-    transform: scale(1.5);
-    filter: drop-shadow(1px 1px 1px var(--default-dark));
-}
-/*end weather*/
 
     main section p {
         align-self: start;
@@ -445,7 +395,44 @@ section.forecast h3 {
 /* End Homepage Styling */
 
 
-
+/* weather css */
+section.forecast h3 {
+    text-align: center;
+}
+.five-day {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 650px;
+}
+.five-day section {
+    border: solid 0.5px var(--default-dark);
+    padding: 0;
+}
+.five-day div {
+    margin: 0 auto;
+}
+.five-day h4 {
+    text-shadow: 1px 1px 1px var(--default-dark);
+    background-color: var(--main-color);
+    color: var(--default-light);
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0;
+}
+.five-day span {
+    color: var(--default-dark);
+    text-align: center;
+    padding: 0.5rem;
+    display: block;
+}
+.weather-icon img {
+    display: block;
+    margin: 10px auto;
+    transform: scale(1.5);
+    filter: drop-shadow(1px 1px 1px var(--default-dark));
+}
+/*end weather*/
 
 /* Begin Rentals Styling */
     section.all-rental-info > section {
