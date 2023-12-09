@@ -1,43 +1,41 @@
-const apiURL = 'https://api.openweathermap.org/data/2.5/weather?id=5809844&appid=4e2177ee75d0475bee028ead2270af2d'
+const currentTemp = document.querySelector('#current-temp');
+const weatherIcon = document.querySelector('#weather-icon');
+const captionDesc = document.querySelector('figcaption');
 
-const getWeather = async () => {
+const url = `https://api.openweathermap.org/data/2.5/weather?zip=97741,us&units=imperial&appid=33e21c071ddd9d8ad6330516b69de4b7`;
+
+apiFetch(url);
+
+async function apiFetch(apiURL) {
+  try {
     const response = await fetch(apiURL);
-    jsObject = await response.json();
-
-    let temp = kelvinToFahrenheit(jsObject.main.temp);
-    document.querySelector('#temp').textContent = temp;
-
-    const iconsrc= `https://openweathermap.org/img/w/${jsObject.weather[0].icon}.png`;
-    const desc = jsObject.weather[0].description.toUpperCase();
-    document.querySelector('#weathericon').setAttribute('src', iconsrc);
-    document.querySelector('#weathericon').setAttribute('alt', desc);
-    document.querySelector('figcaption').textContent = desc;
-
-    let wind = jsObject.wind.speed;
-    document.querySelector('#wind').textContent = wind;
-
-    let temp_int = parseInt(temp);
-    let wind_int = parseInt(wind);
-    windchill(temp_int, wind_int);
-};
-
-const kelvinToFahrenheit = (kelvin) => {
-    const f = (kelvin - 273.15) * 1.8 + 32;
-    return f.toFixed(0);
-}
-
-const windchill = (temp, wind) => {
-    const windchill = document.querySelector('#windchill');
-    const windDegree = document.querySelector('#windDegree');
-
-    windchill.textContent = 'N/A';
-
-    if (temp <= 50 && wind >= 3) {
-        let chill = Math.round((35.74 + (0.6215 * temp))-(35.75 * Math.pow(wind,0.16)) + (0.4275*temp*Math.pow(wind,0.16)));
-        windchill.textContent = chill.toFixed(0);
-        windDegree.innerHTML = '&#8457;';
+    if (response.ok) {
+      const data = await response.json();
+      displayResults(data);
+    } else {
+        throw Error(await response.text());
     }
-    
+  } catch (error) {
+      console.log(error);
+  }
 }
 
-getWeather();
+
+function  displayResults(weatherData) {
+  currentTemp.innerHTML = `<strong>${weatherData.main.temp.toFixed(0)}</strong>`;
+
+  const iconsrc = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
+  const desc = toTitleCase(weatherData.weather[0].description);
+
+  weatherIcon.setAttribute('src', iconsrc);
+  weatherIcon.setAttribute('alt', desc);
+  captionDesc.textContent = desc;
+}
+
+
+
+function toTitleCase(str) {
+  return str.toLowerCase().split(' ').map(function (word) {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  }).join(' ');
+}
