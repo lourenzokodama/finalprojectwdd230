@@ -376,7 +376,7 @@
     .forecast {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        justify-items: horizontal;
+        justify-items: center;
         padding: 2rem 1rem;
         grid-gap: 30px;
     }
@@ -385,19 +385,12 @@
         border-radius: 3px;
         grid-template-columns: 80px auto;
         background-color: var(--gray);
-        align-items: horizontal;
+        align-items: center;
         width: 210px;
     }
     .forecast section * {
         color: white;
     }
-
-.weather-icon img {
-    display: block;
-    margin: 10px auto;
-    transform: scale(1.5);
-    filter: drop-shadow(1px 1px 1px var(--default-dark));
-}
     main section img {
         grid-column: 1;
         grid-row: span 2;
