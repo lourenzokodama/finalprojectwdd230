@@ -9,9 +9,15 @@
     --header: 'Marck Script', verdana, sans-serif;
     --paragraph: 'Ruluko', verdana, sans-serif;
 }
-
-
 /* Begin Basic Initialization CSS */
+ main section, main section div {
+         background-color: white;
+        margin: 10px;
+        text-align: center;
+        /* border: 2px solid #14213d; */
+        height: auto;
+    }
+
     html {
         background-color: var(--gray);
         background-attachment: fixed;
@@ -22,9 +28,7 @@
         overflow-x: hidden;
         box-shadow: 1px 0 10px var(--dark-gray);
     }
-    main {
-        background-color: white;
-    }
+ 
     * {
         color: var(--gray);
         font-family: var(--paragraph);
