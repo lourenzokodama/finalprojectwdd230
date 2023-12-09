@@ -355,12 +355,14 @@
 
 /* weather css */
 
+section.forecast h3 {
+    text-align: center;
+}
 .five-day {
     display: grid;
     margin: 0 auto;
     grid-template-columns: repeat(5, 1fr);
-     width: 50%;
-    /* max-width: 650px; */
+    max-width: 650px;
 }
 .five-day section {
     border: solid 0.5px var(--default-dark);
