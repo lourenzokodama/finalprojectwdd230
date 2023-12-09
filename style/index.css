@@ -1,10 +1,10 @@
 :root {
-    --blue: #1344b6;
+    --blue: #181f30;
     --gray: #737373;
-    --orange: #ffffff;
-    --dark-gray: hsl(345, 77%, 39%);
-    --other: #C3D8FB;
-
+    --orange: #b66407;
+    --dark-gray: #643a45;
+    --other: #0e101b;
+    
     /* I decided to change my Header font... */
     --header: 'Marck Script', verdana, sans-serif;
     --paragraph: 'Ruluko', verdana, sans-serif;
