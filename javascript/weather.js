@@ -1,14 +1,33 @@
-   function getWeather(lat, lon) {
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=YOUR_API_KEY`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('location').innerText = data.name;
-                    document.getElementById('icon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-                    document.getElementById('temp').innerText = Math.round(data.main.temp - 273.15) + '°C';
-                    document.getElementById('desc').innerText = data.weather[0].description;
-                });
-        }
+const currentTemp = document.querySelector('#current-temp');
+const weatherIcon = document.querySelector('#weather-icon');
+const captionDesc = document.querySelector('figcaption');
 
-        navigator.geolocation.getCurrentPosition(position => {
-            getWeather(position.coords.latitude, position.coords.longitude);
-        });
+const url = `https://api.openweathermap.org/data/2.5/weather?zip=97741,us&units=imperial&appid=33e21c071ddd9d8ad6330516b69de4b7`;
+
+apiFetch(url);
+
+async function apiFetch(apiURL) {
+  try {
+    const response = await fetch(apiURL);
+    if (response.ok) {
+      const data = await response.json();
+      displayResults(data);
+    } else {
+        throw Error(await response.text());
+    }
+  } catch (error) {
+      console.log(error);
+  }
+}
+
+
+function  displayResults(weatherData) {
+  currentTemp.innerHTML = `<strong>${weatherData.main.temp.toFixed(0)}</strong>`;
+
+  const iconsrc = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
+  const desc = toTitleCase(weatherData.weather[0].description);
+
+  weatherIcon.setAttribute('src', iconsrc);
+  weatherIcon.setAttribute('alt', desc);
+  captionDesc.textContent = desc;
+}
