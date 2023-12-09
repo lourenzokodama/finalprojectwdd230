@@ -395,44 +395,48 @@
 /* End Homepage Styling */
 
 
-/* weather css */
-section.forecast h3 {
-    text-align: center;
-}
-.five-day {
-    display: grid;
-    margin: 0 auto;
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 650px;
-}
-.five-day section {
-    border: solid 0.5px var(--default-dark);
-    padding: 0;
-}
-.five-day div {
-    margin: 0 auto;
-}
-.five-day h4 {
-    text-shadow: 1px 1px 1px var(--default-dark);
-    background-color: var(--main-color);
-    color: var(--default-light);
-    text-align: center;
-    padding: 0.5rem;
-    margin: 0;
-}
-.five-day span {
-    color: var(--default-dark);
-    text-align: center;
-    padding: 0.5rem;
-    display: block;
-}
-.weather-icon img {
-    display: block;
-    margin: 10px auto;
-    transform: scale(1.5);
-    filter: drop-shadow(1px 1px 1px var(--default-dark));
-}
-/*end weather*/
+/* spotlight spot */
+  #spotlights {
+        grid-column: 3;
+        grid-row: 1/4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: auto
+    }
+
+    #spot1 img, #spot2 img, #spot3 img {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        bottom: 150px;
+    }
+
+    #spot1 h3, #spot2 h3, #spot3 h3 {
+        z-index: 3;
+        position: relative;
+        top: 125px;
+        font-size: 2em;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    #spotlights a {
+        text-decoration: none;
+    }
+
+    #spotlights h3:hover {
+        color: #fca311;
+    }
+
+    #spot1, #spot2, #spot3 {
+        width: 95%;
+        height: 400px;
+        margin: 10px;
+    }
+
+/*End Spot*/
 
 /* Begin Rentals Styling */
     section.all-rental-info > section {
