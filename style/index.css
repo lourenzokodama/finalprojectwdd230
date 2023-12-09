@@ -10,12 +10,8 @@
     --paragraph: 'Ruluko', verdana, sans-serif;
 }
 /* Begin Basic Initialization CSS */
- main section, main section div {
+ main  {
          background-color: white;
-        margin: 10px;
-        text-align: center;
-        /* border: 2px solid #14213d; */
-        height: auto;
     }
 
     html {
